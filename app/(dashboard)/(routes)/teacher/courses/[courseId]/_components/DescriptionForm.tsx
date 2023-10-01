@@ -50,7 +50,7 @@ export const DescriptionForm: React.FC<DescriptionFormProps> = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course Title updated successfully");
+      toast.success("Course Description updated successfully");
       toggleEdit();
       router.refresh();
     } catch (error) {
