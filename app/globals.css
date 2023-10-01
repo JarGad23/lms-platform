@@ -80,3 +80,5 @@ root {
     @apply bg-background text-foreground;
   }
 }
+
+@import "~@uploadthing/react/styles.css";
