@@ -8,9 +8,9 @@ import {
   Draggable,
   DropResult,
 } from "@hello-pangea/dnd";
+import { Grip, Pencil } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Grip, Pencil } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface ChaptersListProps {
@@ -19,11 +19,11 @@ interface ChaptersListProps {
   onEdit: (id: string) => void;
 }
 
-export const ChaptersList: React.FC<ChaptersListProps> = ({
+export const ChaptersList = ({
   items,
-  onEdit,
   onReorder,
-}) => {
+  onEdit,
+}: ChaptersListProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [chapters, setChapters] = useState(items);
 
@@ -37,8 +37,8 @@ export const ChaptersList: React.FC<ChaptersListProps> = ({
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
-    const items = Array.from(chapters);
 
+    const items = Array.from(chapters);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
@@ -75,7 +75,7 @@ export const ChaptersList: React.FC<ChaptersListProps> = ({
                 {(provided) => (
                   <div
                     className={cn(
-                      "flex items-center gpa-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
+                      "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
                       chapter.isPublished &&
                         "bg-sky-100 border-sky-200 text-sky-700"
                     )}
